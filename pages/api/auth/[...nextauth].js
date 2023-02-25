@@ -25,7 +25,7 @@ async function refreshAccessToken(token) {
   }
 }
 
-export const authOptions = {
+const authOptions = {
   // Configure one or more authentication providers
   providers: [
     SpotifyProvider({
@@ -37,7 +37,7 @@ export const authOptions = {
   ],
   secret: process.env.JWT_SECRET,
   pages: {
-    singIn: "/login",
+    login: "/login",
   },
   callbacks: {
     async jwt({ token, account, user }) {
@@ -53,7 +53,7 @@ export const authOptions = {
       }
       //   Return previous token if the access token has not expired yet
       if (Date.now() < token.accessTokenExpires) {
-        console.log("EXISTING ACCESS TOKEN IS VALID");
+        console.log("EXISTING ACCESS TOKEN IS NOT EXPIRES YET");
         return token;
       }
 
