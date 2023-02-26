@@ -1,58 +1,61 @@
-import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, HeartIcon, RssIcon } from "@heroicons/react/outline";
+import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, RssIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/solid";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { playlistIdState } from "../atoms/playlistAtom";
 import useSpotify from "../hooks/useSpotify";
+import Image from "next/image";
+import SpotifyLogo from "../images/spotify-for-developers-logo.svg";
 
 const Sidebar = () => {
   const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
   const [playlist, setPlaylist] = useState([]);
-  const [activePlaylist, setActivePlaylist] = useState([null]);
+  const [activePlaylist, setActivePlaylist] = useRecoilState(playlistIdState);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       spotifyApi.getUserPlaylists().then((data) => setPlaylist(data.body.items));
+      console.log("Zassało playliste");
     }
   }, [session, spotifyApi]);
 
   console.log(activePlaylist);
 
   return (
-    <div className="text-gray-500 p-5 text-sm border-r-gray-900 overflow-y-scroll h-screen scrollbar-hide max-w-6">
-      <div className="space-y-3">
-        <button className="flex items-center space-x-2 hover:text-white" onClick={() => signOut()}>
-          <HomeIcon className="h-5 w-5" />
-          <p>Log out</p>
-        </button>
+    <div className="text-gray-400 p-5 border-r-gray-900 overflow-y-scroll h-screen scrollbar-hide text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-36">
+      <div className="space-y-3 max-w-6">
+        <Image className="fill-white" src={SpotifyLogo} />
         <button className="flex items-center space-x-2 hover:text-white">
-          <HomeIcon className="h-5 w-5" />
+          <HomeIcon className="h-5 w-5 text-blue-500" />
           <p>Home</p>
         </button>
 
         <button className="flex items-center space-x-2 hover:text-white">
-          <SearchIcon className="h-5 w-5" />
+          <SearchIcon className="h-5 w-5 text-white" />
           <p>Search</p>
         </button>
 
         <button className="flex items-center space-x-2 hover:text-white">
-          <LibraryIcon className="h-5 w-5" />
+          <LibraryIcon className="h-5 w-5 text-[darkgoldenrod]" />
           <p>Your Library</p>
         </button>
 
         <hr className="border-t-[0.1px] border-gray-900" />
 
         <button className="flex items-center space-x-2 hover:text-white">
-          <PlusCircleIcon className="h-5 w-5" />
+          <PlusCircleIcon className="h-5 w-5 text-yellow-400" />
           <p>Create Playlist</p>
         </button>
 
         <button className="flex items-center space-x-2 hover:text-white">
-          <HeartIcon className="h-5 w-5" />
+          <HeartIcon className="h-5 w-5 text-red-400" />
           <p>Liked Songs</p>
         </button>
 
         <button className="flex items-center space-x-2 hover:text-white">
-          <RssIcon className="h-5 w-5" />
+          <RssIcon className="h-5 w-5 text-green-400" />
           <p>Your Episodes</p>
         </button>
 
@@ -60,7 +63,7 @@ const Sidebar = () => {
 
         {/* PLAYLIST */}
         {playlist.map((item) => (
-          <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white">
+          <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white ">
             {item.name}
           </p>
         ))}

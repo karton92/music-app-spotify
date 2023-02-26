@@ -4,11 +4,11 @@ import { RecoilRoot } from "recoil";
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
-    <SessionProvider session={session}>
-      <RecoilRoot>
+    <RecoilRoot>
+      <SessionProvider session={session}>
         <Component {...pageProps} />
-      </RecoilRoot>
-    </SessionProvider>
+      </SessionProvider>
+    </RecoilRoot>
   );
 };
 
