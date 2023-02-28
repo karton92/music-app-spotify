@@ -23,7 +23,7 @@ const Song = ({ order, track }) => {
     <div className="grid grid-cols-2 text-gray-400 py-4 px-5 hover:bg-gray-900 rounded-lg cursor-pointer" onClick={() => playSong()}>
       <div className="flex items-center space-x-4">
         <p>{order + 1}</p>
-        <img className="h-10 w-10 rounded-sm" src={track.track.album.images[0].url} alt="" />
+        <img className="h-10 w-10 rounded-sm max-[375px]:hidden" src={track.track.album.images[0].url} alt="" />
 
         <div>
           <p className="w-36 lg:w-64 text-white truncate font-bold">{track.track.name}</p>

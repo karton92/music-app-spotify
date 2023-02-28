@@ -69,8 +69,8 @@ const Player = () => {
         <div className="flex items-center space-x-4">
           <img className="hidden md:inline h-10 w-10 rounded-lg" src={songInfo?.album.images?.[0]?.url} alt="Actual playing song cover" />
           <div>
-            <h3 className="font-bold">{songInfo?.name}</h3>
-            <p className="text-gray-400">{songInfo?.artists?.[0].name}</p>
+            <h3 className="font-bold max-[375px]:text-sm">{songInfo?.name}</h3>
+            <p className="text-gray-400 max-[375px]:text-sm">{songInfo?.artists?.[0].name}</p>
           </div>
         </div>
         {/* Center */}

@@ -17,15 +17,14 @@ const Sidebar = () => {
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       spotifyApi.getUserPlaylists().then((data) => setPlaylist(data.body.items));
-      console.log("Zassało playliste");
     }
   }, [session, spotifyApi]);
 
-  console.log(activePlaylist);
+  console.log(spotifyApi);
 
   return (
-    <div className="text-gray-400 p-5 border-r-gray-900 overflow-y-scroll h-screen scrollbar-hide text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-36">
-      <div className="space-y-3 max-w-6">
+    <div className="text-gray-400 p-5 border-r-gray-900 h-screen text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-32">
+      <div className="space-y-3 overflow-y-scroll scrollbar-hide">
         <Image className="fill-white" src={SpotifyLogo} />
         <button className="flex items-center space-x-2 hover:text-white">
           <HomeIcon className="h-5 w-5 text-blue-500" />
@@ -62,6 +61,7 @@ const Sidebar = () => {
         <hr className="border-t-[0.1px] border-gray-900" />
 
         {/* PLAYLIST */}
+
         {playlist.map((item) => (
           <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white ">
             {item.name}

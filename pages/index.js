@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar";
 
 const Home = () => {
   return (
-    <div className="bg-black h-screen overflow-hidden">
+    <div className="bg-black h-screen overflow-hidden min-w-[280px]">
       <Head>
         <title>Spotify Clone NextJS 13</title>
         <link rel="icon" href="/favicon.ico" />
