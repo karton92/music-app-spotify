@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { useSession } from "next-auth/react";
 import { currentTrackIdState, isPlayingState } from "../atoms/songAtom";
 import useSongInfo from "../hooks/useSongInfo";
-import { HeartIcon, VolumeUpIcon as VolumeDownIcon } from "@heroicons/react/outline";
+import { VolumeUpIcon as VolumeDownIcon } from "@heroicons/react/outline";
 import { SwitchHorizontalIcon, RewindIcon, VolumeUpIcon, FastForwardIcon, PauseIcon, PlayIcon, ReplyIcon } from "@heroicons/react/solid";
 import { debounce } from "lodash";
 

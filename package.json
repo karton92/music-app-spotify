@@ -6,7 +6,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@heroicons/react": "^1.0.6",
+    "@mui/material": "^5.11.15",
     "lodash": "^4.17.21",
     "next": "latest",
     "next-auth": "^4.19.2",
