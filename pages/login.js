@@ -9,7 +9,6 @@ const Login = ({ providers }) => {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/480px-Spotify_logo_without_text.svg.png"
         alt="Spotify Logo"
       />
-
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           <button className="bg-[#18D860] text-white p-5 rounded-full" onClick={() => signIn(provider.id, { callbackUrl: "/" })}>
