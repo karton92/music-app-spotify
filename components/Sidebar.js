@@ -21,10 +21,10 @@ const Sidebar = () => {
   const [activePlaylist, setActivePlaylist] = useRecoilState(playlistIdState);
   const [sidebarVisible, setSidebarVisible] = useRecoilState(sidebarVisibleState);
 
-  const [isDemoVerision, setIsDemoVersion] = useState();
+  const [isDemoVerision, setIsDemoVersion] = useState(false);
 
   useEffect(() => {
-    if (spotifyApi.getAccessToken()) {
+    if (spotifyApi.getAccessToken() && isDemoVerision === false) {
       spotifyApi.getUserPlaylists().then((data) => setPlaylist(data.body.items));
     }
   }, [session, spotifyApi]);
