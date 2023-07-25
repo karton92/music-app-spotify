@@ -7,6 +7,7 @@ import useSongInfo from "../hooks/useSongInfo";
 import { VolumeUpIcon as VolumeDownIcon } from "@heroicons/react/outline";
 import { SwitchHorizontalIcon, RewindIcon, VolumeUpIcon, FastForwardIcon, PauseIcon, PlayIcon, ReplyIcon } from "@heroicons/react/solid";
 import { debounce } from "lodash";
+import { Tooltip } from "@mui/material";
 
 const Player = () => {
   const spotifyApi = useSpotify();
@@ -76,22 +77,39 @@ const Player = () => {
         {/* Center */}
 
         <div className="flex items-center justify-evenly">
-          <SwitchHorizontalIcon className="button" />
-          <RewindIcon className="button" onClick={() => spotifyApi.skipToPrevious()} />
+          <Tooltip title="Random songs">
+            <SwitchHorizontalIcon className="button" />
+          </Tooltip>
+          <Tooltip title="Skip to previous track">
+            <RewindIcon className="button" onClick={() => spotifyApi.skipToPrevious()} />
+          </Tooltip>
+
           {isPlaying ? (
-            <PauseIcon className="button w-10 h-10" onClick={() => handlePlayPause()} />
+            <Tooltip title="Pause track">
+              <PauseIcon className="button w-10 h-10" onClick={() => handlePlayPause()} />
+            </Tooltip>
           ) : (
-            <PlayIcon className="button w-10 h-10" onClick={() => handlePlayPause()} />
+            <Tooltip title="Play track">
+              <PlayIcon className="button w-10 h-10" onClick={() => handlePlayPause()} />
+            </Tooltip>
           )}
-          <FastForwardIcon className="button" onClick={() => spotifyApi.skipToNext()} />
-          <ReplyIcon className="button" />
+          <Tooltip title="Skip to next track">
+            <FastForwardIcon className="button" onClick={() => spotifyApi.skipToNext()} />
+          </Tooltip>
+          <Tooltip title="Repeat song">
+            <ReplyIcon className="button" />
+          </Tooltip>
         </div>
 
         {/* Right */}
         <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
-          <VolumeDownIcon className="button m-3" onClick={() => volume > 0 && setVolume(volume - 10)} />
+          <Tooltip title="Volume down 10%">
+            <VolumeDownIcon className="button m-3" onClick={() => volume > 0 && setVolume(volume - 10)} />
+          </Tooltip>
           <input className="w-14 md:w-28 range " type="range" value={volume} onChange={(e) => setVolume(Number(e.target.value))} min={0} max={100} />
-          <VolumeUpIcon className="button m-3" onClick={() => volume < 100 && setVolume(volume + 10)} />
+          <Tooltip title="Volume up 10%">
+            <VolumeUpIcon className="button m-3" onClick={() => volume < 100 && setVolume(volume + 10)} />
+          </Tooltip>
         </div>
       </div>
     </>
