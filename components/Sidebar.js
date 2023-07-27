@@ -106,9 +106,12 @@ const Sidebar = () => {
         {/* PLAYLIST */}
 
         {playlist.map((item) => (
-          <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white ">
-            {item.name}
-          </p>
+          <div className="flex justify-start items-center">
+            <img className="h-8 w-8 rounded-sm max-[375px]:hidden mr-2" src={item.images[0].url} alt="" />
+            <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white hover:font-bold">
+              {item.name}
+            </p>
+          </div>
         ))}
       </div>
     </div>
