@@ -64,7 +64,7 @@ const Player = () => {
 
   return (
     <>
-      <hr className="border-t-[0.1px] border-gray-900" />
+      <hr className="border-t-[0.1px] border-gray-900 fixed" />
       <div className="text-white h-24 bg-gradient-to-b from-black to-gray-800 grid grid-cols-3 text-sx md: text-base px-2 md:px-8">
         {/* Left */}
         <div className="flex items-center space-x-4">

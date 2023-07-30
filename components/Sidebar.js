@@ -35,6 +35,11 @@ const Sidebar = () => {
   //   }
   // }, [session, spotifyApi]);
 
+  const demoMusicHandler = () => {
+    setIsDemoVersion(!isDemoVerision);
+    isDemoVerision ? console.log("Wersja demo włączona") : console.log("Wersja Spotify włączona");
+  };
+
   console.log(spotifyApi);
 
   const DemoSwitch = styled(Switch)(({ theme }) => ({
@@ -54,11 +59,7 @@ const Sidebar = () => {
   }));
 
   return (
-    <div
-      className={`text-gray-400 p-5 border-r-gray-900 h-screen text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] ${
-        !sidebarVisible ? "hidden" : "visible"
-      } hidden md:inline-flex pb-32`}
-    >
+    <div className={`text-gray-400 p-5 border-r-gray-900 h-screen text-xs lg:text-sm sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-32`}>
       <div className="space-y-3 overflow-y-scroll scrollbar-hide">
         <Image className="fill-white" src={SpotifyLogo} />
         <div className="flex justify-center overflow-visible scrollbar-default">
