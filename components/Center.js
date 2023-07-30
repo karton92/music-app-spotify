@@ -64,7 +64,7 @@ const Center = () => {
       <div className="w-14 h-14 position absolute top-2 m-2 min-[768px]:hidden transition ease-out hover:scale-110 cursor-pointer">
         <MenuIcon onClick={menuTest} />
       </div>
-      <header className="absolute top-5 right-8">
+      <header className="absolute top-5 right-2 md:right-6">
         <div
           className="flex items-center relative bg-black space-x-3 hover:bg-gray-800 cursor-pointer rounded-full p-1 pr-2 transition transform ease-out"
           onClick={() => setIsMenuOpen((prev) => !prev)}
