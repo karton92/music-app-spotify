@@ -29,7 +29,7 @@ _Below is how install and setting up app._
 
 <h2>Stack:</h2>
 1. Next.js<br>
-2. Reactt<br>
+2. React<br>
 3. Tailwind<br>
 4. NextAuth
 5. Recoil<br>
