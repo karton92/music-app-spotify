@@ -1,6 +1,7 @@
 
 <img src="/site-view.png" alt="Site view" width="90%">
-# Next.js + Tailwind CSS Music Spotify CLone App
+
+<h2>Next.js + Tailwind CSS Music Spotify CLone App</h2>
 
 _Welcome to my profile!<br>
 I hope you enjoy this music app<br>
