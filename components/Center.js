@@ -61,37 +61,39 @@ const Center = () => {
 
   return (
     <div className="flex-grow text-white h-screen overflow-y-scroll scrollbar-hide">
-      <div className="w-14 h-14 position absolute top-2 m-2 min-[768px]:hidden transition ease-out hover:scale-110 cursor-pointer">
-        <MenuIcon onClick={menuTest} />
-      </div>
-      <header className="absolute top-5 right-2 md:right-6">
-        <div
-          className="flex items-center relative bg-black space-x-3 hover:bg-gray-800 cursor-pointer rounded-full p-1 pr-2 transition transform ease-out"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-        >
-          <img className="rounded-full w-10 h-10" src={session?.user.image} alt="User avatar" />
-          <h2 className="hidden md:block">{session?.user.name}</h2>
-          {!isMenuOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronUpIcon className="h-5 w-5" />}
-          {isMenuOpen && (
-            <div className="absolute w-auto h-auto right-0 text-white top-14 flex flex-col items-start rounded-lg bg-black md:right-auto">
-              {menuOptions.map((item) => (
-                <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800">
-                  <h3 className="font-bold" key={item.name}>
-                    {item.name}
-                  </h3>
-                  <div className="w-6 h-6 flex justify-end">{item.icon}</div>
-                </div>
-              ))}
-              <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800" onClick={() => logOut()}>
-                <h3 className="font-bold">Wyloguj</h3>
-                <div className="w-6 h-6 flex justify-end">
-                  <LogoutIcon />
+      <div className="fixed flex bg-black h-[80px] w-screen md:bg-transparent md:w-30 md:right-0">
+        <div className="w-14 h-14 position absolute top-0 m-2 md:hidden transition ease-out hover:scale-110 cursor-pointer">
+          <MenuIcon onClick={menuTest} />
+        </div>
+        <header className="absolute top-4 md:top-5 right-3">
+          <div
+            className="flex items-center relative bg-green-600 md:bg-black space-x-3 hover:bg-gray-800 cursor-pointer rounded-full p-1 pr-2 transition transform ease-out"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <img className="rounded-full w-10 h-10" src={session?.user.image} alt="User avatar" />
+            <h2 className="hidden md:block">{session?.user.name}</h2>
+            {!isMenuOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronUpIcon className="h-5 w-5" />}
+            {isMenuOpen && (
+              <div className="absolute w-auto h-auto right-0 text-white top-14 flex flex-col items-start rounded-lg bg-black md:right-auto">
+                {menuOptions.map((item) => (
+                  <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800">
+                    <h3 className="font-bold" key={item.name}>
+                      {item.name}
+                    </h3>
+                    <div className="w-6 h-6 flex justify-end">{item.icon}</div>
+                  </div>
+                ))}
+                <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800" onClick={() => logOut()}>
+                  <h3 className="font-bold">Wyloguj</h3>
+                  <div className="w-6 h-6 flex justify-end">
+                    <LogoutIcon />
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </header>
+            )}
+          </div>
+        </header>
+      </div>
 
       <section className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white p-8`}>
         <img

@@ -16,7 +16,7 @@ const Home = () => {
         <Sidebar />
         <Center />
       </main>
-      <div className="fixed bottom-0">
+      <div className="fixed bottom-0 w-screen">
         <Player />
       </div>
     </div>
