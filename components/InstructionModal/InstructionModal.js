@@ -71,6 +71,7 @@ const InstructionModal = () => {
 
   useEffect(() => {
     setColor(shuffle(colors).pop());
+    console.log("Modal działa");
   }, []);
 
   const resetInstructionModal = () => {
