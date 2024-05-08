@@ -8,6 +8,7 @@ import useSpotify from "../hooks/useSpotify";
 import Playlist from "./Playlist";
 import { isPlayingState } from "../atoms/songAtom";
 import { sidebarVisibleState } from "../atoms/sidebarAtom";
+import { isInstructionModalShow } from "../atoms/instructionAtom";
 
 const colors = ["from-indigo-500", "from-blue-500", "from-green-500", "from-red-500", "from-yellow-500", "from-pink-500", "from-purple-500"];
 const menuOptions = [
@@ -18,10 +19,6 @@ const menuOptions = [
   {
     name: "Ustawienia",
     icon: <CogIcon />,
-  },
-  {
-    name: "Pomoc",
-    icon: <QuestionMarkCircleIcon />,
   },
 ];
 
@@ -34,6 +31,7 @@ const Center = () => {
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
   const [sidebarVisible, setSidebarVisible] = useRecoilState(sidebarVisibleState);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalShow, setIsModalShow] = useRecoilState(isInstructionModalShow);
 
   useEffect(() => {
     setColor(shuffle(colors).pop());
@@ -83,6 +81,12 @@ const Center = () => {
                     <div className="w-6 h-6 flex justify-end">{item.icon}</div>
                   </div>
                 ))}
+                <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800" onClick={() => setIsModalShow(true)}>
+                  <h3 className="font-bold">Pomoc</h3>
+                  <div className="w-6 h-6 flex justify-end">
+                    <QuestionMarkCircleIcon />
+                  </div>
+                </div>
                 <div className="flex items-center justify-between text-md w-[190px] p-4 hover:bg-gray-800" onClick={() => logOut()}>
                   <h3 className="font-bold">Wyloguj</h3>
                   <div className="w-6 h-6 flex justify-end">

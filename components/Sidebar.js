@@ -41,6 +41,7 @@ const Sidebar = () => {
   };
 
   console.log(spotifyApi);
+  console.log(playlist[0]);
 
   const DemoSwitch = styled(Switch)(({ theme }) => ({
     "& .MuiSwitch-switchBase.Mui-checked": {
@@ -108,7 +109,7 @@ const Sidebar = () => {
 
         {playlist.map((item) => (
           <div className="flex justify-start items-center">
-            <img className="h-8 w-8 rounded-sm max-[375px]:hidden mr-2" src={item.images[0].url} alt="" />
+            <img className="h-8 w-8 rounded-sm max-[375px]:hidden mr-2" src={item?.images?.[0].url} alt="" />
             <p key={item.id} onClick={() => setActivePlaylist(item.id)} className="cursor-pointer hover:text-white hover:font-bold">
               {item.name}
             </p>

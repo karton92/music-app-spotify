@@ -17,7 +17,8 @@
     "react-dom": "18.2.0",
     "recoil": "^0.7.6",
     "spotify-web-api-node": "^5.0.2",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "tw-elements": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
